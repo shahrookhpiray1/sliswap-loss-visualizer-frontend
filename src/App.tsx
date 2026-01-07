@@ -42,12 +42,15 @@ const cardStyle = {
 
 // ✅ فقط API — بدون هیچ تنظیمات اضافی
 async function fetchLiveSwap(from: string, to: string, amount: number) {
-  const response = await fetch('https://sliswap-loss-visualizer-backend.onrender.com/api/calculate', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ from, to, amount }),
-  });
-  return response.json();
+  const res = await fetch(
+    'https://sliswap-loss-visualizer-backend.onrender.com/calculate',
+    {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ from, to, amount }),
+    }
+  );
+  return res.json();
 }
 
 
